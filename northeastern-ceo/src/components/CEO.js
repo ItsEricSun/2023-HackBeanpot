@@ -3,19 +3,21 @@ import React from "react"
 class CEO extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { balance: 1, displayBalance: 1.0, students: 0, displayStudents: 0.0, seconds: 0, displaySeconds: 0.0};
+        this.state = { balance: 1, displayBalance: 1.0, students: 0, displayStudents: 0.0, seconds: 0, displaySeconds: 0.0, displayISECs: 0};
         //   this.handleChange = this.handleChange.bind(this);
         this.handleMakeMoney = this.handleMakeMoney.bind(this);
         this.handleBribeChild = this.handleBribeChild.bind(this);
         this.handleMarketing = this.handleMarketing.bind(this);
+        this.handlePurchaseISEC = this.handlePurchaseISEC.bind(this);
     }
 
     render() {
         return (
-            <div>
+            <div className = "blast">
                 <p>${this.state.displayBalance}</p>
                 <p>Students: {this.state.displayStudents}  $perHour: +{this.state.displayStudents}</p>
                 <p>{this.state.displaySeconds}</p>
+                <p>We have {this.state.displayISECs} ISECs</p>
                 <form onSubmit={this.handleMakeMoney}>
                     <button>
                         Make Money!!
@@ -31,12 +33,17 @@ class CEO extends React.Component {
                         Make a marketing video (+ 0-4 students). Cost $12
                     </button>
                 </form>
+                <form onSubmit={this.handlePurchaseISEC}>
+                    <button>
+                        Purchase and ISEC
+                    </button>
+                </form>
             </div>
         );
     }
 
     handleMakeMoney(e) {
-        e.preventDefault();
+        e.preventDefault(); // The preventDefault() method of the Event interface tells the user agent that if the event does not get explicitly handled, its default action should not be taken as it normally would be.
         this.setState(state => ({
             balance: state.balance + 1,
             displayBalance : parseInt(state.balance + 1)
@@ -70,7 +77,7 @@ class CEO extends React.Component {
             balance: state.balance - 10,
             students: state.students + newStudents,
             displayBalance : parseInt(state.balance - 10),
-            displayStudents : parseInt(state.students + newStudents)
+            displayStudents : parseInt(state.students + newStudents)    // parseInt is to prevent the display of decimals
             
         }));
     }
@@ -95,6 +102,16 @@ class CEO extends React.Component {
 
     componentWillUnmount() {
         clearInterval(this.interval);
+    }
+
+    handlePurchaseISEC(e) {
+        e.preventDefault();
+        if(this.state.balance > 1000) {
+            this.setState(state => ({
+                balance: state.balance - 1000,
+                displayISECs : state.displayISECs + 1
+            }))
+        }
     }
 
 }

@@ -28,6 +28,57 @@
   color: #61dafb;
 }
 
+.presidentsTitle {
+  text-align: center;
+  color: #C8102E;
+  border: red;
+  border-radius: 4px;
+  font-family: 'FF Real Head', Courier, monospace;
+}
+
+.name {
+  text-align: center; 
+  color: #E5621C;
+  font-size: 32px;
+}
+.button {
+  background-color: #A4804A;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  /* border-radius: 4px; */
+}
+
+.button:hover {
+  background-color: #a4804aa1;
+  transition: 0.3s;
+}
+
+.moneyImage {
+  display: flex;
+  flex-direction: row;
+}
+
+.blast {
+  display: flex;
+  flex-direction: row;
+}
+
+.inputs {
+  background-color: #A4804A;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
