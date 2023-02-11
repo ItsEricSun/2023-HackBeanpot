@@ -1,58 +1,75 @@
 import React from "react"
 
+/*Positive Reputation: {this.state.posReputation} Negative Reputation: {this.state.negReputation}*/
+
 class CEO extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { 
-            balance: 1, 
-            displayBalance: 1.0, 
-            students: 0, 
-            displayStudents: 0.0, 
-            autoBribe: false,
-            displayAutoBribe: "OFF",
-            displayPerHour: 0,
-            seconds: 0, 
+        this.state = {
+            balance: 0,
+            displayBalance: 0,
+            students: 0,
+            displayStudents: 0.0,
+            seconds: 0,
             displaySeconds: 0.0,
-            displayStudentCost: 1.0,
-        displayMarketingCost: 12.0};
+            displayStudentCost: 5.0,
+            reputation: 0,
+            displayReputation: 0,
+            posReputation: 0,
+            negReputation: 0,
+            balanceRepMultiplier: 0.0001,
+            studentRepMultiplier: 0.1,
+            numDonations: 0,
+            displayMarketingCost: 12.0};
+        //   this.handleChange = this.handleChange.bind(this);
         this.handleMakeMoney = this.handleMakeMoney.bind(this);
         this.handleBribeChild = this.handleBribeChild.bind(this);
         this.handleMarketing = this.handleMarketing.bind(this);
-        this.handleAutoBribe = this.handleAutoBribe.bind(this);
+        this.handleSurpriseMechanics = this.handleSurpriseMechanics.bind(this);
+        this.handleDonationsToHungryHuskies = this.handleDonationsToHungryHuskies.bind(this);
     }
 
     render() {
         return (
             <div>
                 <p>${this.state.displayBalance}</p>
+                <p>Students: {this.state.displayStudents}  $perHour: +{this.state.displayStudents}</p>
+                <p>Reputation: {this.state.displayReputation}</p>
+                <p>{this.state.displaySeconds}</p>
+
                 <form onSubmit={this.handleMakeMoney}>
                     <button>
-                        Make Money
+                        Make money!!
                     </button>
                 </form>
-                <p> Students: {this.state.displayStudents} $perHour: +{this.state.displayPerHour} </p>
 
                 <form onSubmit={this.handleBribeChild}>
                     <button>
-                        Bribe a Child
+                        Bribe a child (+ 1 student)
                     </button>
                 </form>
 
-                <form onSubmit={this.handleAutoBribe}>
-                    <button>
-                        AutoBribe: {this.state.displayAutoBribe}
-                    </button>
-                </form>
-                <p> Cost: {this.state.displayStudentCost}</p>
+                <p>Cost: {this.state.displayStudentCost}</p>
 
                 <form onSubmit={this.handleMarketing}>
                     <button>
-                        Create marketing video
+                        Make a marketing video (+ 0-4 students)
                     </button>
                 </form>
+
                 <p> Cost: {this.state.displayMarketingCost}</p>
 
-                <p>{this.state.displaySeconds}</p>
+                <form onSubmit={this.handleSurpriseMechanics}>
+                    <button>
+                        Legally indulge in surprise mechanics! (+ -30-50 students). Cost $100 and decreases reputation
+                    </button>
+                </form>
+
+                <form onSubmit={this.handleDonationsToHungryHuskies}>
+                    <button>
+                        Donate to hungry huskies. Cost $2500
+                    </button>
+                </form>
             </div>
         );
     }
@@ -65,9 +82,24 @@ class CEO extends React.Component {
             }));
     }
 
+    // handles bribery of children
+    /*handleBribeChild(e) {
+        e.preventDefault(); // DON'T remove this
+        if (this.state.balance < 5) {
+            return;
+        }
+        let newStudents = 1;
+        this.setState(state => ({
+            balance: state.balance - 5,
+            students: state.students + newStudents,
+            displayBalance : parseInt(state.balance - 5),
+            displayStudents : parseInt(state.students + newStudents)
+            
+        }));
+    }*/
+
     handleBribeChild(e) {
         e.preventDefault();
-        let expo = this.state.displayStudents * 0.15;
         if (this.state.balance < this.state.displayStudentCost) {
             return;
         }
@@ -78,36 +110,28 @@ class CEO extends React.Component {
             displayBalance : parseInt(state.balance - state.displayStudentCost),
             displayStudents : parseInt(state.students + newStudents),
         }));
-        if (this.state.displayStudentCost < 10 || this.state.displayStudents < 15) {
-            this.setState(state => ({
-                displayStudentCost: state.displayStudentCost + 1,
-                displayPerHour : state.displayPerHour + 1
-            }))
-        } else {
-            let newCost = Math.floor(this.state.displayStudentCost * 1.14);
-            this.setState(state => ({
-                displayStudentCost: parseInt(newCost),
-                displayPerHour : state.displayPerHour + parseInt(Math.floor(expo))
-            }));
-        }
+
+        let multiplier = 0.1; //(Math.random() / 2);
+        let newCost = Math.floor(this.state.displayStudentCost * (1 + multiplier));
+        this.setState(state => ({
+            displayStudentCost: parseInt(newCost) == state.displayStudentCost ? state.displayStudentCost + 1 : parseInt(newCost)
+        }))
     }
 
-    handleAutoBribe(e) {
-        e.preventDefault();
-        if (this.state.balance > this.state.displayStudentCost) {
-            if (this.state.autoBribe) {
-                this.setState(state => ({
-                    autoBribe: false,
-                    displayAutoBribe: "OFF"
-                }))
-            } else {
-                this.setState(state => ({
-                    autoBribe: true,
-                    displayAutoBribe: "ON"
-                }))
-            }
+    /*handleMarketing(e) {
+        e.preventDefault(); // DON'T remove this
+        if (this.state.balance < 12) {
+            return;
         }
-    }
+        let newStudents = Math.floor(Math.random() * 4);
+        this.setState(state => ({
+            balance: state.balance - 10,
+            students: state.students + newStudents,
+            displayBalance : parseInt(state.balance - 10),
+            displayStudents : parseInt(state.students + newStudents)
+            
+        }));
+    }*/
 
     handleMarketing(e) {
         e.preventDefault();
@@ -118,40 +142,69 @@ class CEO extends React.Component {
         let newCost = Math.floor(this.state.displayMarketingCost * 1.2);
         if (this.state.displayMarketingCost < 30) {
             this.setState(state => ({
-                balance: state.balance - state.displayMarketingCost - 2,
+                balance: state.balance - state.displayMarketingCost,
                 students: state.students + newStudents,
-                displayBalance: parseInt(state.balance - state.displayMarketingCost - 2),
-                displayStudents: parseInt(state.students + newStudents),
-                displayMarketingCost: state.displayMarketingCost + 2,
-                displayPerHour: state.displayPerHour + 1
+                displayBalance : parseInt(state.balance - 10),
+                displayStudents : parseInt(state.students + newStudents),
+                displayMarketingCost : state.displayMarketingCost + 2
             }));
         } else {
             this.setState(state => ({
-                balance: state.balance - newCost,
+                balance: state.balance - state.displayMarketingCost,
                 students: state.students + newStudents,
-                displayBalance: parseInt(state.balance - newCost),
-                displayStudents: parseInt(state.students + newStudents),
-                displayMarketingCost : newCost,
-                displayPerHour: state.displayPerHour + 1
+                displayBalance : parseInt(state.balance - state.displayMarketingCost),
+                displayStudents : parseInt(state.students + newStudents),
+                displayMarketingCost : newCost
             }));
         }
+    }
+
+    handleSurpriseMechanics(e) {
+        e.preventDefault(); // DON'T remove this
+        if (this.state.balance < 1) {
+            return;
+        }
+        let newStudents = Math.floor(Math.random() * 80) - 30;
+        let projectedUpdatedStudentCount = this.state.students + newStudents
+        if (projectedUpdatedStudentCount < 0) {
+            projectedUpdatedStudentCount = 0
+        }
+        this.setState(state => ({
+            balance: state.balance - 1,
+            students: projectedUpdatedStudentCount,
+            displayBalance: parseInt(state.balance - 1),
+            displayStudents: parseInt(projectedUpdatedStudentCount),
+            negReputation: state.negReputation + 10,
+        }));
+    }
+
+    handleDonationsToHungryHuskies(e) {
+        e.preventDefault(); // DON'T remove this
+        if (this.state.balance < 2500) {
+            return;
+        }
+        this.setState(state => ({
+            balance: state.balance - 2500,
+            displayBalance : parseInt(state.balance - 2500),
+            numDonations : state.numDonations + 1
+        }));
     }
 
     tick() {
         this.setState(state => ({
             seconds: state.seconds + 0.1,
-            displaySeconds : parseInt(state.seconds + 0.1)
+            displaySeconds: parseInt(state.seconds + 0.1),
+            //studentRepMultiplier: state.reputation < -10 ? 0.1 * Math.pow(0.9, state.reputation + 10): 0.1,
+            posReputation: state.balance * state.balanceRepMultiplier + state.displayStudents * state.studentRepMultiplier + state.numDonations * 5 + Math.floor(state.reputation / 1000),
+            reputation: state.posReputation - state.negReputation,
+            displayReputation: parseInt(state.reputation * 10) / 10
 
         }));
         if(this.state.students > 0) {
             this.setState(state => ({
-                balance: state.balance + 0.1 * state.students,
-                displayBalance: parseInt(state.balance + 0.1 * state.students)
+                balance: state.balance + state.students * (state.reputation < -10 ? 0.1 * Math.pow(1.1, 0.1 * state.reputation + 1): 0.1),
+                displayBalance: parseInt(state.balance + state.students * (state.reputation < -10 ? 0.1 * Math.pow(1.1, 0.1 * state.reputation + 1): 0.1))
             }));
-        }
-        if (this.state.autoBribe && (this.state.balance > this.state.displayStudentCost)) {
-            console.log("a");
-            this.handleBribeChild();
         }
     }
 
