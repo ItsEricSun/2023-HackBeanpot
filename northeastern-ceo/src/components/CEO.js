@@ -93,18 +93,21 @@ class CEO extends React.Component {
         let newCost = Math.floor(this.state.displayMarketingCost * 1.2);
         if (this.state.displayMarketingCost < 30) {
             this.setState(state => ({
-                balance: state.balance - 10,
+                balance: state.balance - state.displayMarketingCost - 2,
                 students: state.students + newStudents,
-                displayBalance : parseInt(state.balance - 10),
+                displayBalance : parseInt(state.balance - state.displayMarketingCost - 2),
                 displayStudents : parseInt(state.students + newStudents),
-                displayMarketingCost : state.displayMarketingCost + 2
+                displayMarketingCost : state.displayMarketingCost + 2,
+                displayPerHour: state.displayPerHour + 1
             }));
         } else {
             this.setState(state => ({
-                balance: state.balance - 10,
+                balance: state.balance - newCost,
                 students: state.students + newStudents,
-                displayBalance : parseInt(state.balance - 10),
-                displayMarketingCost : newCost
+                displayBalance : parseInt(state.balance - state.displayMarketingCost - 2),
+                displayStudents : parseInt(state.students + newStudents),
+                displayMarketingCost : newCost,
+                displayPerHour: state.displayPerHour + 1
             }));
         }
     }
