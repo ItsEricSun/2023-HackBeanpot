@@ -1,5 +1,4 @@
 import React from "react"
-import money from '../assets/money.png'
 
 /*Positive Reputation: {this.state.posReputation} Negative Reputation: {this.state.negReputation}*/
 
@@ -21,8 +20,7 @@ class CEO extends React.Component {
             balanceRepMultiplier: 0.0001,
             studentRepMultiplier: 0.1,
             numDonations: 0,
-            displayMarketingCost: 12.0
-        };
+            displayMarketingCost: 12.0};
         //   this.handleChange = this.handleChange.bind(this);
         this.handleMakeMoney = this.handleMakeMoney.bind(this);
         this.handleBribeChild = this.handleBribeChild.bind(this);
@@ -41,7 +39,7 @@ class CEO extends React.Component {
 
                 <form onSubmit={this.handleMakeMoney}>
                     <button>
-                        <img src={money} className="App-logo" alt="" />
+                        Make money!!
                     </button>
                 </form>
 
@@ -76,7 +74,7 @@ class CEO extends React.Component {
         );
     }
 
-    
+
 
     handleMakeMoney(e) {
         e.preventDefault();
