@@ -1,4 +1,5 @@
-import money from './money.png';
+import money from './assets/money.png';
+import neu from './assets/neu.svg';
 import './App.css';
 import CEO from './components/CEO'
 import NEU from './components/NEU'
@@ -9,15 +10,15 @@ function App() {
     const [name, setName] = useState("")
     return (
         <div className='parent'>
-            <div className='component-relations'>   
-                <NEU setName={setName} />
-                <President name={name} />
-                
-                <CEO />
-            </div>
-
-            <div className='moneyImage'>
-                <img src={money} className="App-logo" alt="logo" />
+            <NEU setName={setName} />
+            <President name={name} />
+            <div className='component-relations'>
+                <div className='moneyImage'>
+                    <img src={neu} className="NEU-logo" alt="logo" />
+                </div>
+                <div className='qwop'>
+                    <CEO />
+                </div>
             </div>
         </div>
     );
