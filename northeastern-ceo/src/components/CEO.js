@@ -1,5 +1,8 @@
 import React from "react"
 import money from '../assets/money.png'
+import video from '../assets/video copy.png'
+import dice from '../assets/dice copy.png'
+import hoosky from '../assets/Hoosky.png'
 
 /*Positive Reputation: {this.state.posReputation} Negative Reputation: {this.state.negReputation}*/
 
@@ -65,7 +68,8 @@ class CEO extends React.Component {
 
                         <li><form onSubmit={this.handleMarketing}>
                             <button>
-                                Make a marketing video (+ 0-4 students)
+                                <img src={video} className="App-logo" alt="" />
+                                <p>Make a marketing video (+ 0-4 students)</p>
                             </button>
                         </form></li>
 
@@ -73,13 +77,15 @@ class CEO extends React.Component {
 
                         <li><form onSubmit={this.handleSurpriseMechanics}>
                             <button>
-                                Legally indulge in surprise mechanics! (+ -30-50 students). Cost $100 and decreases reputation
+                                <img src={dice} className="App-logo" alt="" />
+                                <p>Legally indulge in surprise mechanics! (+ -30-50 students). Cost $100 and decreases reputation</p>
                             </button>
                         </form></li>
 
                         <li><form onSubmit={this.handleDonationsToHungryHuskies}>
                             <button>
-                                Donate to hungry huskies. Cost $2500
+                                <img src={hoosky} className="App-logo" alt="" />
+                                <p>Donate to hungry huskies. Cost $250</p>
                             </button>
                         </form></li>
                         
