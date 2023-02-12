@@ -13,7 +13,7 @@ function NEU({ setName }) {
                     className="button"
                     onClick={() => setName(nameInput)}
                 >
-                    Set Your President's Name
+                    Set Your CEO's Name
                 </button>
             </div>
         </div>

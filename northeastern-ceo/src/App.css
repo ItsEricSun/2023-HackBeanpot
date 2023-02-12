@@ -32,6 +32,11 @@
   color: #61dafb;
 }
 
+.title-header {
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
+}
+
 .presidentsTitle {
   text-align: center;
   color: #C8102E;
@@ -45,7 +50,31 @@
   text-align: left;
   color: #ffffff;
   font-size: 20px;
-  font-family: 'Cormorant', serif;
+  font-family: Lato, Geneva, Tahoma, sans-serif;
+  margin-top: 0.4em;
+  margin-bottom: 0.4em;
+  /* padding-left: pt; */
+}
+
+.welcome {
+  text-align: left;
+  color: #ffffff;
+  font-size: 28px;
+  font-family: Lato, Geneva, Tahoma, sans-serif;
+  margin-top: 0.1em;
+  margin-left: 1em;
+  margin-bottom: 0.5em;
+  /* padding-left: pt; */
+}
+
+.ceoName {
+  text-align: left;
+  color: #ffffff;
+  font-size: 28px;
+  font-family: Lato, Geneva, Tahoma, sans-serif;
+  margin-top: 0.5em;
+  margin-left: 1em;
+  margin-bottom: 0.2em;
   /* padding-left: pt; */
 }
 
