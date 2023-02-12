@@ -138,8 +138,8 @@ class CEO extends React.Component {
         let multiplier = (this.state.reputation > 10 ? 0.1 * Math.pow(0.9, 0.1 * this.state.reputation - 1): 0.1); //(Math.random() / 2);
         let newCost = Math.floor(this.state.displayStudentCost * (1 + multiplier));
         this.setState(state => ({
-            displayStudentCost: parseInt(newCost) === state.displayStudentCost ? state.displayStudentCost + 1 : parseInt(newCost),
-            displayPerHour : state.displayStudents + parseInt(Math.floor(expo))
+            displayStudentCost: parseInt(newCost) === state.displayStudentCost ? state.displayStudentCost + 1 : parseInt(newCost)
+            // displayPerHour : state.displayStudents + parseInt(Math.floor(expo))
         }))
     }
 
