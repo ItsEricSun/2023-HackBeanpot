@@ -3,6 +3,8 @@ import money from '../assets/money.png'
 import video from '../assets/video copy.png'
 import dice from '../assets/dice copy.png'
 import hoosky from '../assets/Hoosky.png'
+import campus from '../assets/school.png'
+import bribery from '../assets/Bribery.png'
 
 /*Positive Reputation: {this.state.posReputation} Negative Reputation: {this.state.negReputation}*/
 
@@ -60,9 +62,11 @@ class CEO extends React.Component {
 
                         <li><form onSubmit={this.handleBribeChild}>
                             <button>
-                                Bribe a child (+ 1 student).
+                                <img src={bribery} className="App-logo" alt="" />
+                                <p>Bribe a child (+ 1 student)
                                 <br></br>
                                 Cost: {this.state.displayStudentCost}
+                                </p>
                             </button>
                         </form></li>
 
@@ -92,7 +96,8 @@ class CEO extends React.Component {
                         
                         <li><form onSubmit={this.handleMakeCampuses}>
                             <button>
-                                Build a new campus! Cost $10,000
+                                <img src={campus} className="App-logo" alt="" />
+                                <p>Build a new campus! Cost $10,000</p>
                             </button>
                         </form></li>
                     </ol>
