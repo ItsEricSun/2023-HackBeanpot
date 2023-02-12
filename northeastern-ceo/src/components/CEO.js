@@ -21,6 +21,8 @@ class CEO extends React.Component {
             campuses: 1,
             seconds: 0,
             displaySeconds: 0.0,
+            autoBribe: false,
+            displayAutoBribe: "OFF",
             displayStudentCost: 5.0,
             reputation: 0,
             displayReputation: 0,
@@ -41,6 +43,7 @@ class CEO extends React.Component {
         this.handleSurpriseMechanics = this.handleSurpriseMechanics.bind(this);
         this.handleDonationsToHungryHuskies = this.handleDonationsToHungryHuskies.bind(this);
         this.handleMakeCampuses = this.handleCampuses.bind(this);
+        this.handleAutoBribe = this.handleAutoBribe.bind(this);
     }
 
     render() {
@@ -51,6 +54,11 @@ class CEO extends React.Component {
                     <p>Students: {this.state.displayStudents}  ($/sec: +{this.state.displayPerHour})</p>
                     <p>Reputation: {this.state.displayReputation}</p>
                     <p>Time played: {this.state.displaySeconds}s</p>
+                    <form onSubmit={this.handleAutoBribe}>
+                    <button title="Auto bribes child when there is enough total $$$">
+                        AutoBribe: {this.state.displayAutoBribe}
+                    </button>
+                </form>
                 </div>
                 <div className='modifiers'>
                     <ol className='orderedList'>
@@ -148,6 +156,43 @@ class CEO extends React.Component {
         }))
     }
 
+    handleBribeChild2() {
+        let expo = this.state.displayStudents * 0.15;
+        if (this.state.balance < this.state.displayStudentCost) {
+            return;
+        }
+        let newStudents = 1;
+        this.setState(state => ({
+            balance: state.balance - state.displayStudentCost,
+            students: state.students + newStudents,
+            studentOverflow : state.students > state.campuses * 1000 ? state.studentOverflow + 1 : state.studentOverflow,
+            displayBalance : parseInt(state.balance - state.displayStudentCost),
+            displayStudents : parseInt(state.students + newStudents),
+        }));
+
+        let multiplier = (this.state.reputation > 10 ? 0.1 * Math.pow(0.9, 0.1 * this.state.reputation - 1): 0.1); //(Math.random() / 2);
+        let newCost = Math.floor(this.state.displayStudentCost * (1 + multiplier));
+        this.setState(state => ({
+            displayStudentCost: parseInt(newCost) === state.displayStudentCost ? state.displayStudentCost + 1 : parseInt(newCost),
+        }))
+    }
+
+    handleAutoBribe(e) {
+        e.preventDefault();
+        if(this.state.autoBribe) {
+            this.setState(state => ({
+                autoBribe: false,
+                displayAutoBribe: "OFF"
+            }))
+        } else {
+            this.setState(state => ({
+                autoBribe: true,
+                displayAutoBribe: "ON"
+            }))
+        }
+    }
+
+
     handleCampuses(e) {
         e.preventDefault();
         if (this.state.balance < 10000) {
@@ -241,6 +286,9 @@ class CEO extends React.Component {
                 balance: state.balance + state.displayPerHour * (state.reputation < -10 ? 0.1 * Math.pow(1.1, 0.1 * state.reputation + 1): 0.1),
                 displayBalance: parseInt(state.balance + state.students * (state.reputation < -10 ? 0.1 * Math.pow(1.1, 0.1 * state.reputation + 1): 0.1))
             }));
+        }
+        if (this.state.autoBribe && (this.state.balance >= this.state.displayStudentCost)) {
+            this.handleBribeChild2();
         }
     }
 
