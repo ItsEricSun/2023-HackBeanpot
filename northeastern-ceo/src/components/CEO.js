@@ -24,7 +24,7 @@ class CEO extends React.Component {
             balanceRepMultiplier: 0.0001,
             studentRepMultiplier: 0.1,
             studentOverflow: 0, 
-            studentOverflowMulitplier: 0.0012,
+            studentOverflowMultiplier: 0.0012,
             numDonations: 0,
             displayMarketingCost: 12.0
         };
@@ -69,7 +69,7 @@ class CEO extends React.Component {
 
                 <form onSubmit={this.handleSurpriseMechanics}>
                     <button>
-                        Legally indulge in surprise mechanics! (+ -30-50 students). Cost $100 and decreases reputation
+                        Legally indulge in surprise mechanics! (+/- 30-50 students). Cost $100 and decreases reputation
                     </button>
                 </form>
                 <form onSubmit={this.handleDonationsToHungryHuskies}>
