@@ -60,20 +60,21 @@ class CEO extends React.Component {
 
                         <li><form onSubmit={this.handleBribeChild}>
                             <button>
-                                Bribe a child (+ 1 student)
+                                Bribe a child (+ 1 student).
+                                <br></br>
+                                Cost: {this.state.displayStudentCost}
                             </button>
                         </form></li>
-
-                        <p>Cost: {this.state.displayStudentCost}</p>
 
                         <li><form onSubmit={this.handleMarketing}>
                             <button>
                                 <img src={video} className="App-logo" alt="" />
-                                <p>Make a marketing video (+ 0-4 students)</p>
+                                <p>Make a marketing video (+ 0-4 students)
+                                    <br></br>
+                                    Cost: {this.state.displayMarketingCost}
+                                </p>
                             </button>
                         </form></li>
-
-                        <p> Cost: {this.state.displayMarketingCost}</p>
 
                         <li><form onSubmit={this.handleSurpriseMechanics}>
                             <button>

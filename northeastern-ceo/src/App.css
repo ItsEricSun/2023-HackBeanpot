@@ -36,11 +36,27 @@
   font-family: 'FF Real Head', Courier, monospace;
 }
 
-.name {
+.universityName {
+  text-align: left;
+  color: #E5621C;
+  font-size: 20px;
+  /* padding-left: pt; */
+}
+
+.presidentName {
+  text-align: left;
+  color: #E5621C;
+  font-size: 20px;
+  padding-left: 100pt;
+}
+
+.name1 {
+  display: flex;
+  flex-direction: column;
   text-align: center;
   color: #E5621C;
   font-size: 20px;
-  padding-left: 50pt;
+  padding-left: 200pt;
 }
 
 .presNames {
@@ -79,7 +95,6 @@
   border-radius: 25px;
   border-style: solid;
   border-color: #69d0ec;
-  /* background: #73AD21; */
 }
 
 .blast {

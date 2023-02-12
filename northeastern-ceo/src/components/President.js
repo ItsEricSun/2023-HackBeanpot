@@ -2,9 +2,12 @@
 
 function President({ name }) {
     return (
-        <div>
-            <div className="name">
-                <h1>Northeastern University {name}</h1>
+        <div className='name1'>
+            <div className='universityName'>
+                <h1>Northeastern University</h1>
+            </div>
+            <div className='presidentName'>
+                <h1>President: {name}</h1>
             </div>
         </div>
     )
