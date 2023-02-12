@@ -9,8 +9,8 @@ class CEO extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            balance: 0,
-            displayBalance: 0,
+            balance: 10000,
+            displayBalance: 10000,
             students: 0,
             displayStudents: 0.0,
             campuses: 1,
@@ -42,10 +42,10 @@ class CEO extends React.Component {
         return (
             <div className='info'>
                 <div className='data'>
-                    <p>Total money: ${this.state.displayBalance}</p>
-                    <p>Students: {this.state.displayStudents}  $/sec: +{this.state.displayStudents}</p>
+                    <p>${this.state.displayBalance}</p>
+                    <p>Students: {this.state.displayStudents}  ($/sec: +{this.state.displayPerHour})</p>
                     <p>Reputation: {this.state.displayReputation}</p>
-                    <p>Time played: {this.state.displaySeconds}s</p>
+                    <p>{this.state.displaySeconds}</p>
                 </div>
                 <div className='modifiers'>
                     <ol className='orderedList'>
@@ -73,7 +73,7 @@ class CEO extends React.Component {
 
                         <li><form onSubmit={this.handleSurpriseMechanics}>
                             <button>
-                                Legally indulge in surprise mechanics! (+/- 30-50 students). Cost $100, decreases reputation
+                                Legally indulge in surprise mechanics! (+ -30-50 students). Cost $100 and decreases reputation
                             </button>
                         </form></li>
 
@@ -122,8 +122,7 @@ class CEO extends React.Component {
         let multiplier = (this.state.reputation > 10 ? 0.1 * Math.pow(0.9, 0.1 * this.state.reputation - 1): 0.1); //(Math.random() / 2);
         let newCost = Math.floor(this.state.displayStudentCost * (1 + multiplier));
         this.setState(state => ({
-            displayStudentCost: parseInt(newCost) === state.displayStudentCost ? state.displayStudentCost + 1 : parseInt(newCost)
-            // displayPerHour : state.displayStudents + parseInt(Math.floor(expo))
+            displayStudentCost: parseInt(newCost) === state.displayStudentCost ? state.displayStudentCost + 1 : parseInt(newCost),
         }))
     }
 
@@ -211,7 +210,8 @@ class CEO extends React.Component {
             posReputation: state.balance * state.balanceRepMultiplier + state.displayStudents * state.studentRepMultiplier + state.numDonations * 5 + Math.floor(state.reputation / 1000),
             negReputation : state.negReputation + state.studentOverflow * state.studentOverflowMulitplier,
             reputation: state.posReputation - state.negReputation,
-            displayReputation: parseInt(state.reputation * 10) / 10
+            displayReputation: parseInt(state.reputation * 10) / 10,
+            displayPerHour : Math.floor(state.displayStudents * 1.15)
 
         }));
         if (this.state.students > 0) {
