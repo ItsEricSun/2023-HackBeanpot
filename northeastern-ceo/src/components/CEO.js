@@ -42,10 +42,10 @@ class CEO extends React.Component {
         return (
             <div className='info'>
                 <div className='data'>
-                    <p>${this.state.displayBalance}</p>
+                    <p>Total: ${this.state.displayBalance}</p>
                     <p>Students: {this.state.displayStudents}  ($/sec: +{this.state.displayPerHour})</p>
                     <p>Reputation: {this.state.displayReputation}</p>
-                    <p>{this.state.displaySeconds}</p>
+                    <p>Time played: {this.state.displaySeconds}s</p>
                 </div>
                 <div className='modifiers'>
                     <ol className='orderedList'>
@@ -73,13 +73,13 @@ class CEO extends React.Component {
 
                         <li><form onSubmit={this.handleSurpriseMechanics}>
                             <button>
-                                Legally indulge in surprise mechanics! (+ -30-50 students). Cost $100 and decreases reputation
+                                Legally indulge in surprise mechanics! (+/- 30-50 students). Cost $100 and decreases reputation
                             </button>
                         </form></li>
 
                         <li><form onSubmit={this.handleDonationsToHungryHuskies}>
                             <button>
-                                Donate to hungry huskies. Cost $2500
+                                Donate to hungry huskies. Cost $250
                             </button>
                         </form></li>
                         
