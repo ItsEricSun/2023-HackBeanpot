@@ -50,6 +50,10 @@
   padding-left: 50pt;
 }
 
+.text {
+  width: 247px;
+}
+
 .name1 {
   display: flex;
   flex-direction: column;
