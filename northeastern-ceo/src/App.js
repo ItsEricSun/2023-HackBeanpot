@@ -12,7 +12,7 @@ function App() {
         <html lang="en">
             <head>
                 <link href="App.css" rel="stylesheet" type="text/css" />
-                <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@700&display=swap" rel="stylesheet" /> 
+                <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@700&family=Lato:wght@400&display=swap" rel="stylesheet" /> 
             </head>
             <div className='parent'>
                 <div className='presNames'>
