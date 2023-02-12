@@ -19,6 +19,7 @@ class CEO extends React.Component {
             students: 0,
             displayStudents: 0.0,
             campuses: 1,
+            campusPrice: 10000,
             seconds: 0,
             displaySeconds: 0.0,
             autoBribe: false,
@@ -116,7 +117,7 @@ class CEO extends React.Component {
                                 <img src={campus} className="App-logo" alt="" />
                                 <p className="text">Build a new campus! 
                                     <br></br>
-                                    <span style={{ fontWeight: 'bold' }}>Cost $10,000</span></p>
+                                    <span style={{ fontWeight: 'bold' }}>Cost ${this.state.campusPrice}</span></p>
                             </button>
                         </form></li>
                     </ol>
@@ -196,14 +197,16 @@ class CEO extends React.Component {
 
     handleCampuses(e) {
         e.preventDefault();
-        if (this.state.balance < 10000) {
+        if (this.state.balance < this.state.campusPrice) {
             return;
         }
         let newStudents = 100;
+        let multiplier = (this.state.reputation > 10 ? 0.1 * Math.pow(0.9, 0.1 * this.state.reputation - 1): 0.1); //(Math.random() / 2);
+        let newCost = Math.floor(this.state.displayStudentCost * (1 + multiplier));
         this.setState(state => ({
-            balance: state.balance - 10000,
+            balance: state.balance - newCost,
             students: state.students + newStudents,
-            displayBalance : parseInt(state.balance - 10000),
+            displayBalance : parseInt(state.balance - newCost),
             campuses : state.campuses + 1,
             displayStudents : parseInt(state.students + newStudents)
         }))
