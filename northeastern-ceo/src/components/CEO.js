@@ -51,8 +51,9 @@ class CEO extends React.Component {
             <div className='info'>
                 <div className='data'>
                     <p>Total: ${this.state.displayBalance}</p>
-                    <p>Students: {this.state.displayStudents}  ($/sec: +{this.state.displayPerHour})</p>
+                    <p>Students: {this.state.displayStudents} <br></br> ($/sec: +{this.state.displayPerHour})</p>
                     <p>Reputation: {this.state.displayReputation}</p>
+                    <p>Campuses: {this.state.campuses}</p>
                     <p>Time played: {this.state.displaySeconds}s</p>
                     <form onSubmit={this.handleAutoBribe}>
                     <button title="Auto bribes child when there is enough total $$$">
@@ -63,59 +64,59 @@ class CEO extends React.Component {
                 <div className='modifiers'>
                     <ol className='orderedList'>
                         <li><form onSubmit={this.handleMakeMoney}>
-                            <button className='buttonModifiers'>
+                            <button>
                                 <img src={money} className="App-logo" alt="" />
                                 <p className="text"> $
                                 <br></br>
-                                <span style={{ fontWeight: 'bold' }}>Cost: 0</span>
+                                Cost: 0
                                 </p>
                             </button>
                         </form></li>
 
                         <li><form onSubmit={this.handleBribeChild}>
-                            <button button className='buttonModifiers'>
+                            <button>
                                 <img src={bribery} className="App-logo" alt="" />
                                 <p className="text">Bribe a child (+ 1 student)
                                 <br></br>
-                                <span style={{ fontWeight: 'bold' }}>Cost: {this.state.displayStudentCost}</span>
+                                Cost: {this.state.displayStudentCost}
                                 </p>
                             </button>
                         </form></li>
 
                         <li><form onSubmit={this.handleMarketing}>
-                            <button button className='buttonModifiers'>
+                            <button>
                                 <img src={video} className="App-logo" alt="" />
                                 <p className="text">Make a marketing video (+ 0-4 students)
                                     <br></br>
-                                    <span style={{ fontWeight: 'bold' }}>Cost: {this.state.displayMarketingCost}</span>
+                                    Cost: {this.state.displayMarketingCost}
                                 </p>
                             </button>
                         </form></li>
 
                         <li><form onSubmit={this.handleSurpriseMechanics}>
-                            <button button className='buttonModifiers'>
+                            <button>
                                 <img src={dice} className="App-logo" alt="" />
                                 <p className="text">Legally indulge in surprise mechanics! 
                                     <br></br>
-                                    <span style={{ fontWeight: 'bold' }}>Cost $100</span></p>
+                                    Cost $100</p>
                             </button>
                         </form></li>
 
                         <li><form onSubmit={this.handleDonationsToHungryHuskies}>
-                            <button button className='buttonModifiers'>
+                            <button>
                                 <img src={hoosky} className="App-logo" alt="" />
                                 <p className="text">Donate to hungry huskies.
                                     <br></br> 
-                                    <span style={{ fontWeight: 'bold' }}>Cost $250</span></p>
+                                    Cost $250</p>
                             </button>
                         </form></li>
                         
                         <li><form onSubmit={this.handleMakeCampuses}>
-                            <button button className='buttonModifiers'>
+                            <button>
                                 <img src={campus} className="App-logo" alt="" />
                                 <p className="text">Build a new campus! 
                                     <br></br>
-                                    <span style={{ fontWeight: 'bold' }}>Cost $10,000</span></p>
+                                    Cost $10,000</p>
                             </button>
                         </form></li>
                     </ol>
