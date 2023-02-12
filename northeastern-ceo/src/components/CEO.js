@@ -90,22 +90,6 @@ class CEO extends React.Component {
                         </form></li>
                     </ol>
                 </div>
-
-                <form onSubmit={this.handleSurpriseMechanics}>
-                    <button>
-                        Legally indulge in surprise mechanics! (+/- 30-50 students). Cost $100
-                    </button>
-                </form>
-                <form onSubmit={this.handleDonationsToHungryHuskies}>
-                    <button>
-                        Donate to hungry huskies. Cost $2500
-                    </button>
-                </form>
-                <form onSubmit={this.handleMakeCampuses}>
-                    <button>
-                        Build a new campus! Cost $10,000
-                    </button>
-                </form>
             </div>
         );
     }
