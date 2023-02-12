@@ -57,6 +57,10 @@ class CEO extends React.Component {
                         <li><form onSubmit={this.handleMakeMoney}>
                             <button>
                                 <img src={money} className="App-logo" alt="" />
+                                <p> $
+                                <br></br>
+                                Cost: 0
+                                </p>
                             </button>
                         </form></li>
 
