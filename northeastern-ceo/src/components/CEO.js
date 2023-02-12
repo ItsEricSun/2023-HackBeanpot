@@ -83,21 +83,27 @@ class CEO extends React.Component {
                         <li><form onSubmit={this.handleSurpriseMechanics}>
                             <button>
                                 <img src={dice} className="App-logo" alt="" />
-                                <p>Legally indulge in surprise mechanics! (+ -30-50 students). Cost $100 and decreases reputation</p>
+                                <p>Legally indulge in surprise mechanics! 
+                                    <br></br>
+                                    Cost $100</p>
                             </button>
                         </form></li>
 
                         <li><form onSubmit={this.handleDonationsToHungryHuskies}>
                             <button>
                                 <img src={hoosky} className="App-logo" alt="" />
-                                <p>Donate to hungry huskies. Cost $250</p>
+                                <p>Donate to hungry huskies.
+                                    <br></br> 
+                                    Cost $250</p>
                             </button>
                         </form></li>
                         
                         <li><form onSubmit={this.handleMakeCampuses}>
                             <button>
                                 <img src={campus} className="App-logo" alt="" />
-                                <p>Build a new campus! Cost $10,000</p>
+                                <p>Build a new campus! 
+                                    <br></br>
+                                    Cost $10,000</p>
                             </button>
                         </form></li>
                     </ol>
