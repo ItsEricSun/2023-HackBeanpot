@@ -126,12 +126,14 @@ ol.orderedList {
 
 p {
   padding: 0.5rem;
+  padding-left: 1rem;
 }
 
 form {
-  padding-left: 2rem;
+  padding-left: 1rem;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+
 }
 
 img {
