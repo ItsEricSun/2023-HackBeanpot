@@ -6,7 +6,7 @@ function NEU({ setName }) {
         <div className="presidentsTitle">
             <h1 className="title-header">What Will You Be Called?</h1>
             <div className="buttons-panel">
-                <input className="inputs" value={nameInput} onChange={(e) => {
+                <input className="inputs" placeholder="Enter Your Name Here" value={nameInput} onChange={(e) => {
                     setNameInput(e.target.value)
                 }} />
                 <button

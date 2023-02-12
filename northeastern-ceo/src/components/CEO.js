@@ -68,7 +68,7 @@ class CEO extends React.Component {
                                 <img src={money} className="App-logo" alt="" />
                                 <p className="text"> $
                                 <br></br>
-                                <span style={{ fontWeight: 'bold' }}>Cost: 0</span>
+                                <span style={{ fontWeight: 'bold' }}>Cost: FREE</span>
                                 </p>
                             </button>
                         </form></li>
@@ -78,7 +78,7 @@ class CEO extends React.Component {
                                 <img src={bribery} className="App-logo" alt="" />
                                 <p className="text">Bribe a child (+ 1 student)
                                 <br></br>
-                                <span style={{ fontWeight: 'bold' }}>Cost: {this.state.displayStudentCost}</span>
+                                <span style={{ fontWeight: 'bold' }}>Cost: ${this.state.displayStudentCost}</span>
                                 </p>
                             </button>
                         </form></li>
@@ -88,7 +88,7 @@ class CEO extends React.Component {
                                 <img src={video} className="App-logo" alt="" />
                                 <p className="text">Make a marketing video (+ 0-4 students)
                                     <br></br>
-                                    <span style={{ fontWeight: 'bold' }}>Cost: {this.state.displayMarketingCost}</span>
+                                    <span style={{ fontWeight: 'bold' }}>Cost: ${this.state.displayMarketingCost}</span>
                                 </p>
                             </button>
                         </form></li>
