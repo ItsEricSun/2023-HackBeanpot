@@ -93,22 +93,16 @@
 }
 
 .component-relations {
+  background-image: url("assets/b.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background-image: linear-gradient(to top, #BB4100,#f1c0a3); */
   display: flex;
   flex-direction: row;
-  border-radius: 25px;
+  height:100vh;
+  /* border-radius: 25px;
   border-style: solid;
-  border-color: #69d0ec;
-}
-
-.blast {
-  float: left;
-  margin: auto;
-  border-style: solid;
-  border-radius: 25px;
-  padding: 20px;
-  border-color: darkgreen;
-  display: flex;
-  flex-direction: row;
+  border-color: #69d0ec; */
 }
 
 .inputs {
@@ -120,6 +114,8 @@
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+  border-style: solid;
+  border-width: 2pt;
 }
 
 .info {
@@ -129,7 +125,7 @@
 
 ol.orderedList {
   list-style-type: none;
-  column-count: 2;
+  column-count: 3;
   column-gap: 0px; 
 }
 
@@ -155,5 +151,5 @@ form {
 }
 
 img {
-  scale: 50%;
+  scale: 80%;
 }
