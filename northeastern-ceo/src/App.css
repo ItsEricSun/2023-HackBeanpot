@@ -104,6 +104,17 @@
   font-size: 16px;
 }
 
+.info {
+  display: flex;
+  flex-direction: row;
+}
+
+ol.orderedList {
+  list-style-type: none;
+  column-count: 2;
+  column-gap: 0px; 
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -119,6 +130,8 @@ p {
 
 form {
   padding-left: 2rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 img {

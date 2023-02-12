@@ -4,7 +4,7 @@ function President({ name }) {
     return (
         <div>
             <div className="name">
-                <h1>{name}</h1>
+                <h1>Northeastern University {name}</h1>
             </div>
         </div>
     )
