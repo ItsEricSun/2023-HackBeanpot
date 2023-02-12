@@ -10,8 +10,10 @@ function App() {
     const [name, setName] = useState("")
     return (
         <div className='parent'>
-            <NEU setName={setName} />
-            <President name={name} />
+            <div className='presNames'>
+                <NEU setName={setName} />
+                <President name={name} />
+            </div>
             <div className='component-relations'>
                 <div className='moneyImage'>
                     <img src={neu} className="NEU-logo" alt="logo" />
