@@ -13,6 +13,10 @@
   }
 }
 
+.data {
+  width: 17rem;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -34,12 +38,14 @@
   border: red;
   border-radius: 4px;
   font-family: Lato, Geneva, Tahoma, sans-serif;
+  font-family: 'Cormorant', serif;
 }
 
 .universityName {
   text-align: left;
   color: #ffffff;
   font-size: 20px;
+  font-family: 'Cormorant', serif;
   /* padding-left: pt; */
 }
 

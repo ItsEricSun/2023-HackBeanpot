@@ -9,20 +9,26 @@ import React, { useState } from 'react'
 function App() {
     const [name, setName] = useState("")
     return (
-        <div className='parent'>
-            <div className='presNames'>
-                <NEU setName={setName} />
-                <President name={name} />
-            </div>
-            <div className='component-relations'>
-                <div className='moneyImage'>
-                    <img src={neu} className="NEU-logo" alt="logo" />
+        <html lang="en">
+            <head>
+                <link href="App.css" rel="stylesheet" type="text/css" />
+                <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@700&display=swap" rel="stylesheet" /> 
+            </head>
+            <div className='parent'>
+                <div className='presNames'>
+                    <NEU setName={setName} />
+                    <President name={name} />
                 </div>
-                <div className='qwop'>
-                    <CEO />
+                <div className='component-relations'>
+                    <div className='moneyImage'>
+                        <img src={neu} className="NEU-logo" alt="logo" />
+                    </div>
+                    <div className='qwop'>
+                        <CEO />
+                    </div>
                 </div>
             </div>
-        </div>
+        </html>
     );
 }
 
