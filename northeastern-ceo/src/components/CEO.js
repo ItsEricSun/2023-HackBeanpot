@@ -40,10 +40,10 @@ class CEO extends React.Component {
     render() {
         return (
             <div>
-                <p>${this.state.displayBalance}</p>
+                <p>Your total: ${this.state.displayBalance}</p>
                 <p>Students: {this.state.displayStudents}  $perHour: +{this.state.displayStudents}</p>
                 <p>Reputation: {this.state.displayReputation}</p>
-                <p>{this.state.displaySeconds}</p>
+                <p>Time played: {this.state.displaySeconds}s</p>
 
                 <form onSubmit={this.handleMakeMoney}>
                     <button>
@@ -69,7 +69,7 @@ class CEO extends React.Component {
 
                 <form onSubmit={this.handleSurpriseMechanics}>
                     <button>
-                        Legally indulge in surprise mechanics! (+/- 30-50 students). Cost $100 and decreases reputation
+                        Legally indulge in surprise mechanics! (+/- 30-50 students). Cost $100
                     </button>
                 </form>
                 <form onSubmit={this.handleDonationsToHungryHuskies}>
@@ -200,7 +200,7 @@ class CEO extends React.Component {
             displaySeconds: parseInt(state.seconds + 0.1),
             //studentRepMultiplier: state.reputation < -10 ? 0.1 * Math.pow(0.9, state.reputation + 10): 0.1,
             posReputation: state.balance * state.balanceRepMultiplier + state.displayStudents * state.studentRepMultiplier + state.numDonations * 5 + Math.floor(state.reputation / 1000),
-            negReputation : state.negReputation + state.studentOverflow * state.studentOverflowMulitplier,
+            negReputation : state.negReputation + state.studentOverflow * state.studentOverflowMultiplier,
             reputation: state.posReputation - state.negReputation,
             displayReputation: parseInt(state.reputation * 10) / 10
 
