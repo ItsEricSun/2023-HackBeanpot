@@ -45,10 +45,10 @@ class CEO extends React.Component {
         return (
             <div className='info'>
                 <div className='data'>
-                    <p>${this.state.displayBalance}</p>
+                    <p>Total: ${this.state.displayBalance}</p>
                     <p>Students: {this.state.displayStudents}  ($/sec: +{this.state.displayPerHour})</p>
                     <p>Reputation: {this.state.displayReputation}</p>
-                    <p>{this.state.displaySeconds}</p>
+                    <p>Time played: {this.state.displaySeconds}s</p>
                 </div>
                 <div className='modifiers'>
                     <ol className='orderedList'>
