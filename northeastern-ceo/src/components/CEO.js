@@ -208,6 +208,7 @@ class CEO extends React.Component {
             students: state.students + newStudents,
             displayBalance : parseInt(state.balance - newCost),
             campuses : state.campuses + 1,
+            campusPrice: newCost,
             displayStudents : parseInt(state.students + newStudents)
         }))
     }
