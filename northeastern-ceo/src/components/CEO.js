@@ -14,8 +14,8 @@ class CEO extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            balance: 10000,
-            displayBalance: 10000,
+            balance: 1,
+            displayBalance: 1,
             students: 0,
             displayStudents: 0.0,
             campuses: 1,
