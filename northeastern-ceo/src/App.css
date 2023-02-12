@@ -35,6 +35,7 @@
 .title-header {
   margin-top: 0.2em;
   margin-bottom: 0.2em;
+  font-family: Lato, Geneva, Tahoma, sans-serif;
 }
 
 .presidentsTitle {
@@ -100,7 +101,7 @@
 
 .presNames {
   margin-right: 0;
-  margin-left: auto; 
+  margin-left: auto;
   display: flex;
   flex-direction: row;
   padding: 10pt;
@@ -122,13 +123,35 @@
 .button2 {
   margin: 0;
   padding: 0;
-  overflow:hidden;
+  overflow: hidden;
   border: hidden;
 }
+
 
 .button:hover {
   background-color: #a4804aa1;
   transition: 0.3s;
+}
+
+.buttonModifiers {
+  border-radius: 10px;
+  background-color: rgba(241, 229, 211, 0.692);
+  cursor: pointer;
+}
+
+.buttonModifiers:hover {
+  background-color: rgb(236, 216, 161);
+  transition: 0.3s;
+  transition-duration: 0.4s;
+  overflow: hidden;
+  position: relative;
+
+}
+
+.buttonModifiers:active {
+  background-color: #dda407;
+  box-shadow: 1px #666;
+  transform: translateY(2px);
 }
 
 .component-relations {
@@ -138,7 +161,7 @@
   /* background-image: linear-gradient(to top, #BB4100,#f1c0a3); */
   display: flex;
   flex-direction: row;
-  height:100vh;
+  height: 100vh;
   /* border-radius: 25px;
   border-style: solid;
   border-color: #69d0ec; */
@@ -165,13 +188,14 @@
 ol.orderedList {
   list-style-type: none;
   column-count: 3;
-  column-gap: 0px; 
+  column-gap: 0px;
 }
 
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
