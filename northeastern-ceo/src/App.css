@@ -76,9 +76,9 @@
 .component-relations {
   display: flex;
   flex-direction: row;
-  border-radius: 15px;
+  border-radius: 25px;
   border-style: solid;
-  border-color: #61dafb;
+  border-color: #69d0ec;
   /* background: #73AD21; */
 }
 
@@ -125,7 +125,7 @@ ol.orderedList {
 }
 
 p {
-  padding: 1rem;
+  padding: 0.5rem;
 }
 
 form {

@@ -23,8 +23,8 @@ class CEO extends React.Component {
             negReputation: 0,
             balanceRepMultiplier: 0.0001,
             studentRepMultiplier: 0.1,
-            studentOverflow: 0,
-            studentOverflowMulitplier: 0.0012,
+            studentOverflow: 0, 
+            studentOverflowMultiplier: 0.0012,
             numDonations: 0,
             displayMarketingCost: 12.0
         };
@@ -90,6 +90,21 @@ class CEO extends React.Component {
                     </ol>
                 </div>
 
+                <form onSubmit={this.handleSurpriseMechanics}>
+                    <button>
+                        Legally indulge in surprise mechanics! (+/- 30-50 students). Cost $100
+                    </button>
+                </form>
+                <form onSubmit={this.handleDonationsToHungryHuskies}>
+                    <button>
+                        Donate to hungry huskies. Cost $2500
+                    </button>
+                </form>
+                <form onSubmit={this.handleMakeCampuses}>
+                    <button>
+                        Build a new campus! Cost $10,000
+                    </button>
+                </form>
             </div>
         );
     }
@@ -208,7 +223,7 @@ class CEO extends React.Component {
             displaySeconds: parseInt(state.seconds + 0.1),
             //studentRepMultiplier: state.reputation < -10 ? 0.1 * Math.pow(0.9, state.reputation + 10): 0.1,
             posReputation: state.balance * state.balanceRepMultiplier + state.displayStudents * state.studentRepMultiplier + state.numDonations * 5 + Math.floor(state.reputation / 1000),
-            negReputation: state.negReputation + state.studentOverflow * state.studentOverflowMulitplier,
+            negReputation : state.negReputation + state.studentOverflow * state.studentOverflowMultiplier,
             reputation: state.posReputation - state.negReputation,
             displayReputation: parseInt(state.reputation * 10) / 10
 
